@@ -1,0 +1,11 @@
+{
+  "name": "accesscontrolapi",
+  "version": "1.0.0",
+  "description": "API to make an access control system using ESP-8266",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Eduardo Piña <mrejpm@gmail.com>",
+  "license": "MIT"
+}
