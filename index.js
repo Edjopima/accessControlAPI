@@ -14,17 +14,33 @@ app.post('/action', (req,res)=>{
         "action":action,
         "uid":uid,
         "name":"Eduardo Piña",
-        "result":0
+        "result":0,
+        "open": 0
     }
     console.log(action,uid);
-    if (action === 'open' && uid === " 5B 84 E9 0A"){
-        response.result = 1; 
-        res.status(200).json(response);
-    }else{
-        response.result = 0;
-        response.name = "Tarjeta No Registrada";
-        res.status(200).json(response);
-    }
+    switch (action) {
+        case 'open':{
+        response.open = 1;
+         if (uid === " 5B 84 E9 0A"){
+            response.result = 1; 
+            console.log(response);
+            res.status(200).json(response);
+        }else{
+            response.result = 0;
+            response.name = "Tarjeta No Registrada";
+            console.log(response);
+            res.status(200).json(response);
+        }
+        break; 
+        }
+        case 'register':{
+            response.open = 0;
+            response.result = 1;
+            response.name = "Pedro Piña"
+            console.log(response);
+            res.status(200).json(response);
+        }
+}
 })
 app.listen(process.env.PORT, ()=>{
     console.log(`app is running on port ${process.env.PORT}` );
